@@ -1,4 +1,5 @@
-import { Controller, Get, Header, HttpCode, Param, Post, Query, Redirect, Req } from '@nestjs/common';
+import { CreateCatDto } from './create-cat.dto';
+import { Body, Controller, Get, Header, HttpCode, Param, Post, Query, Redirect, Req } from '@nestjs/common';
 import { Request } from 'express';
 import { Observable, of } from 'rxjs';
 
@@ -7,7 +8,7 @@ export class CatsController {
     @Post('new')
     @HttpCode(204)
     @Header('Cache-Control', 'none')
-    create(): string {
+    async create(@Body() createCatDto: CreateCatDto) {
         return 'This action adds a new cat';
     }
     
