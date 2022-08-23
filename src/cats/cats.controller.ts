@@ -1,6 +1,6 @@
 import { CreateCatDto } from './create-cat.dto';
-import { Body, Controller, Get, Header, HttpCode, Param, Post, Query, Redirect, Req } from '@nestjs/common';
-import { Request } from 'express';
+import { Body, Controller, Get, Header, HttpCode, Param, Post, Query, Redirect, Req, Res, HttpStatus } from '@nestjs/common';
+import { Request, Response } from 'express';
 import { Observable, of } from 'rxjs';
 
 @Controller('cats')
@@ -18,8 +18,8 @@ export class CatsController {
     }
 
     @Get('ab*cd')
-    find() {
-        return 'This route uses a wildcard';
+    find(@Res() res: Response) {
+        res.status(HttpStatus.OK).json([])
     }
 
     @Get('docs')
