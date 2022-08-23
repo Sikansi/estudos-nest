@@ -18,7 +18,7 @@ export class CatsController {
     }
 
     @Get('ab*cd')
-    find(@Res() res: Response) {
+    find(@Res({ passthrough: true}) res: Response) {
         res.status(HttpStatus.OK).json([])
     }
 
