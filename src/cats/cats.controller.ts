@@ -1,5 +1,6 @@
 import { Controller, Get, Header, HttpCode, Param, Post, Query, Redirect, Req } from '@nestjs/common';
 import { Request } from 'express';
+import { Observable, of } from 'rxjs';
 
 @Controller('cats')
 export class CatsController {
@@ -11,8 +12,8 @@ export class CatsController {
     }
     
     @Get('list-all')
-    async findAll(@Req() request: Request): Promise<any[]>{
-        return [];
+    findAll(): Observable<any[]> {
+        return of([]);
     }
 
     @Get('ab*cd')
