@@ -11,8 +11,8 @@ export class CatsController {
     }
     
     @Get('list-all')
-    findAll(@Req() request: Request): string{
-        return 'This action returns all cats';
+    async findAll(@Req() request: Request): Promise<any[]>{
+        return [];
     }
 
     @Get('ab*cd')
