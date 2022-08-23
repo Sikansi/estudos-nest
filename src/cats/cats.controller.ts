@@ -1,4 +1,4 @@
-import { CreateCatDto } from './create-cat.dto';
+import { CreateCatDto } from './dto/create-cat.dto';
 import { Body, Controller, Get, Header, HttpCode, Param, Post, Query, Redirect, Req, Res, HttpStatus } from '@nestjs/common';
 import { Request, Response } from 'express';
 import { Observable, of } from 'rxjs';
