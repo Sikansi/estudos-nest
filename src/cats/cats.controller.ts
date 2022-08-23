@@ -1,4 +1,4 @@
-import { Controller, Get, Header, HttpCode, Post, Query, Redirect, Req } from '@nestjs/common';
+import { Controller, Get, Header, HttpCode, Param, Post, Query, Redirect, Req } from '@nestjs/common';
 import { Request } from 'express';
 
 @Controller('cats')
@@ -26,5 +26,11 @@ export class CatsController {
         if(version && version === '5') {
             return { url: 'https://docs.nestjs.com/v5/'};
         }
+    }
+
+    @Get(':id')
+    findOne(@Param() params): string {
+        console.log(params.id);
+        return 'This action returns a cat #${params.id} cat';
     }
 }
